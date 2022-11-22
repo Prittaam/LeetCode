@@ -1,0 +1,51 @@
+class Solution {
+    public int romanToInt(String s) {
+        char[] rom = s.toCharArray();
+        int val = 0;
+        int n = 0;
+    if(rom[s.length()-1] == 'I' || rom[s.length()-1] == 'X' || rom[s.length()-1] == 'C'){
+            n = s.length()-1;
+            if(rom[n] == 'I'){
+                    val++;
+            }else if(rom[n] == 'X'){
+                    val+=10;
+            }else if(rom[n] == 'C'){
+                    val+=100; 
+            }
+        }else{
+            n = s.length();
+        }
+        for(int i = 0; i < n; i++){
+            if(rom[i] == 'I'){
+                if(rom[i+1] == 'V' || rom[i+1] == 'X'){
+                    val--;
+                }else{
+                    val++;
+                }
+            }else if(rom[i] == 'V'){
+                val+=5;
+            }else if(rom[i] == 'X'){
+                if(rom[i+1] == 'L' || rom[i+1] == 'C'){
+                    val-=10;
+                }else{
+                    val+=10;
+                }
+            }else if(rom[i] == 'L'){
+                val+=50;
+            }else if(rom[i] == 'C'){
+                if(rom[i+1] == 'D' || rom[i+1] == 'M'){
+                    val-=100;
+                }else{
+                    val+=100;
+                } 
+            }else if(rom[i] == 'D'){
+                val+=500;
+            }else if(rom[i] == 'M'){
+                val+=1000;
+            }
+        }
+        
+        return val;
+        
+    }
+}
