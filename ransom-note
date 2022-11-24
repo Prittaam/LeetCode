@@ -1,3 +1,6 @@
+https://leetcode.com/problems/ransom-note/
+
+
 class Solution {
     public boolean canConstruct(String ransomNote, String magazine) {
         int[] ren = new int[26];
