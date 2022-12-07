@@ -1,0 +1,17 @@
+https://leetcode.com/problems/palindrome-number/
+
+class Solution {
+    public boolean isPalindrome(int x) {
+        int temp = x;
+        int num = 0;
+        while(temp > 0){
+            int last_d = temp % 10;
+            num = (num * 10) + last_d;
+            temp /= 10;
+        }
+        if(num == x)
+        return true;
+
+        return false;
+    }
+}
